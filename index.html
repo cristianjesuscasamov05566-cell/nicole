@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Nicole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <!-- Fondo animado de frases y corazones -->
+  <div id="fondo-frases" aria-hidden="true"></div>
+
+  <!-- Contenedor de explosión de corazones al abrir notas -->
+  <div id="explosion-corazones" aria-hidden="true"></div>
+
+  <main class="contenedor">
+    <header class="encabezado">
+      <p class="etiqueta">Un detalle especial</p>
+      <h1>Para ti, Nicole</h1>
+      <p class="subtitulo">Elige un botón para abrir cada sorpresa</p>
+    </header>
+
+    <!-- Menú principal por botones -->
+    <nav class="menu-botones">
+      <button class="btn-nav activo" data-seccion="mensajes">Botones de amor</button>
+      <button class="btn-nav" data-seccion="carta">Carta</button>
+      <button class="btn-nav" data-seccion="latidos">Siempre en mi corazón</button>
+      <button class="btn-nav" data-seccion="canciones">Canciones</button>
+      <button class="btn-nav" data-seccion="corazon">Corazón</button>
+    </nav>
+
+    <!-- Sección 1: 6 botones con textos que tú escribes + carta secreta al abrir los 6 -->
+    <section id="mensajes" class="seccion activa">
+      <h2>Ábreme cuando...</h2>
+      <p id="progreso-notas" class="progreso-notas">Notas abiertas: 0 / 6</p>
+
+      <div class="grid-mensajes">
+        <button class="btn-mensaje" data-titulo="Cuando me extrañes" data-texto="Cierra los ojos un segundo: aquí estoy pensando en ti y deseando abrazarte.">
+          Ábreme cuando me extrañes
+        </button>
+        <button class="btn-mensaje" data-titulo="Cuando tengas un día pesado" data-texto="sé que no soy el mejor haciéndote sentir bien, pero quiero que sepas que estoy dispuesto a escucharte en cualquier momento, nunca olvides que te amo.">
+          Ábreme si tuviste un mal día
+        </button>
+        <button class="btn-mensaje" data-titulo="Cuando quieras sonreír" data-texto="Me encanta tu risa, tu forma de expresarte, tu forma de amar y que eres super especial en mi vida.">
+          Ábreme cuando quieras sonreír
+        </button>
+        <button class="btn-mensaje" data-titulo="Un recordatorio" data-texto="Eres la persona mas especial que llego a mi vida este 2026. Gracias por existir y ser tu misma siempre.">
+          Ábreme para recordar lo que vales
+        </button>
+        <button class="btn-mensaje" data-titulo="Antes de dormir" data-texto="Que descanses mi amor. Te amo y que sueñes conmigo. te mando un beso mi Nicole.">
+          Ábreme antes de dormir
+        </button>
+        <button class="btn-mensaje" data-titulo="Sin motivo" data-texto="Solo quería recordarte que te amo muchísimo, hoy y siempre.">
+          Ábreme sin ningún motivo
+        </button>
+      </div>
+
+      <!-- Carta secreta que se desbloquea al abrir las 6 notas -->
+      <div id="bloque-carta-secreta" class="bloque-carta-secreta oculto">
+        <button id="btn-abrir-carta-secreta" class="btn-carta-secreta" type="button">
+          ✨ ¡Desbloqueaste una carta más para ti! Ábrela aquí ✨
+        </button>
+      </div>
+
+      <article id="carta-secreta-abierta" class="hoja-carta carta-secreta oculto">
+        <h2>Una carta más para ti</h2>
+        <p>
+          Nicole. Te amo enserio y quiero estar a tu lado en las buenas y en las malas, apoyarte en todo y que cumplamos nuestras metas y que esta relación que tenemos llegue a un matrimonio contigo.. Te amo, Celina Nicole Villalobos.
+        </p>
+      </article>
+    </section>
+
+    <!-- Sección 2: Carta -->
+    <section id="carta" class="seccion">
+      <article class="hoja-carta">
+        <h2>Mi carta para ti</h2>
+        <p>
+          Hola amor mío. Esta carta no es como las demás, este pequeño apartado lo hice con todo mi amor porque siempre estoy pensando en ti y en como me haces sentir. La verdad cuando estoy contigo, es como estar en paz con todo el mundo. Amor a veces ya no se la manera de explicarte y decirte cuanto te amo y te amare por siempre y para siempre, te llevo en mi corazón y en mi mente, me generas mucha felicidad cuando te veo sonreír, amo que me ames, amo abrazarte y darte besitos y mientras lees esto probablemente estoy pensando en ti y en como te extraño. Gracias Nicole por escogerme y amarme. TE AMO
+        </p>
+      </article>
+    </section>
+
+    <!-- Sección 3: Corazón que palpita y saca tarjetas con frases bonitas -->
+    <section id="latidos" class="seccion">
+      <h2>Cada latido tiene algo para ti</h2>
+      <div class="escenario-latido">
+        <div id="zona-tarjetas-latido" aria-live="polite"></div>
+
+        <button id="corazon-latiente" class="corazon-latiente" type="button" aria-label="Corazón que palpita">
+          <span class="texto-corazon-latiente">siempre en mi corazón</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Sección 4: Canciones con título arriba, letra en medio y portada abajo -->
+    <section id="canciones" class="seccion">
+      <h2>Nuestras canciones</h2>
+      <div class="canciones-layout">
+        <p class="frase-orbita f1">"Contigo los días pasan distinto..."</p>
+        <p class="frase-orbita f2">"Cada canción bonita me lleva a ti"</p>
+
+        <div class="lista-canciones">
+          <article class="tarjeta-cancion">
+            <h3 class="titulo-cancion">Mi suerte - Morat</h3>
+
+            <p class="letra-cancion">
+              Porque aunque no pueda verte<br />
+              Yo nunca culparé a la suerte<br />
+              Yo ya gaste toda mi suerte<br />
+              Mi suerte la usé en encontrarte a ti,<br />
+              Y aunque me quede sin nada, yo nunca culparé a la suerte<br />
+              Yo ya gaste toda mi suerte,<br />
+              Mi suerte la use en encontrarte a ti.
+            </p>
+
+            <figure class="portada-album">
+              <img
+                src="https://akamai.sscdn.co/uploadfile/letras/albuns/b/d/2/c/989721606421977.jpg"
+                alt="Portada del álbum de Mi suerte - Morat"
+              />
+              <figcaption>Portada del álbum</figcaption>
+            </figure>
+          </article>
+
+          <article class="tarjeta-cancion">
+            <h3 class="titulo-cancion">Mi Vida Entera</h3>
+
+            <p class="letra-cancion">
+              Y es que al fin,<br />
+              Si te casas con un loco<br />
+              Vas a ver que es la magia poco a poco.<br />
+              No podrás distinguir entre besos y palabras,<br />
+              Un te quiero no me alcanza<br />
+              Dame todo, di que sí<br />
+              Y si bailamos tan solo bailamos<br />
+              Y si tus pies nuestra historia escribieran<br />
+              Como si fuera este el final de un cuento<br />
+              Y nadie más en el mundo existiera
+            </p>
+
+            <figure class="portada-album">
+              <img
+                src="https://tse3.mm.bing.net/th/id/OIP.xhQmOPLnryxGZ_Mj4UOfZwHaHa?r=0&pid=Api&h=220&P=0"
+                alt="Portada de la canción Mi Vida Entera"
+              />
+              <figcaption>Portada de la canción</figcaption>
+            </figure>
+          </article>
+        </div>
+
+        <p class="frase-orbita f3">"Me quedo con lo que me haces sentir"</p>
+        <p class="frase-orbita f4">"Tu nombre suena bonito en todo"</p>
+      </div>
+    </section>
+
+    <!-- Sección 5: Corazón grande hecho de "Te amo" con "Nicole" en medio -->
+    <section id="corazon" class="seccion">
+      <h2>Para ti</h2>
+      <div class="escena-corazon">
+        <div id="corazon-palabras" aria-hidden="true"></div>
+        <div class="nombre-centro">Nicole</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Ventana emergente para leer cada botón de amor -->
+  <div id="modal-mensaje" class="modal oculto" role="dialog" aria-modal="true">
+    <div class="modal-contenido">
+      <button id="cerrar-modal" class="btn-cerrar" aria-label="Cerrar">✕</button>
+      <h3 id="modal-titulo"></h3>
+      <p id="modal-texto"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
